@@ -1,0 +1,31 @@
+[project]
+name = "croco"
+version = "0.1.0"
+description = ""
+readme = "README.MD"
+
+# conda install habitat-sim headless -c conda-forge -c aihabitat
+# conda install pytorch torchvision -c pytorch
+# conda install notebook ipykernel matplotlib
+# conda install ipywidgets widgetsnbextension
+# conda install scikit-learn tqdm quaternion opencv # only for pretraining / habitat data generation
+dependencies = [
+    "torch",
+    "torchvision",
+    "numpy",
+    "matplotlib",
+    "ipywidgets",
+    "widgetsnbextension",
+    "scikit-learn",
+    "tqdm",
+    "quaternion",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = [
+    "src/croco",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

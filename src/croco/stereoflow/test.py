@@ -16,16 +16,16 @@ import torch
 from torch.utils.data import DataLoader
 
 import utils.misc as misc
-from models.croco_downstream import CroCoDownstreamBinocular
-from models.head_downstream import PixelwiseTaskWithDPT
+from croco.models.croco_downstream import CroCoDownstreamBinocular
+from croco.models.head_downstream import PixelwiseTaskWithDPT
 
-from stereoflow.criterion import *
-from stereoflow.datasets_stereo import get_test_datasets_stereo
-from stereoflow.datasets_flow import get_test_datasets_flow
-from stereoflow.engine import tiled_pred
+from croco.stereoflow.criterion import *
+from croco.stereoflow.datasets_stereo import get_test_datasets_stereo
+from croco.stereoflow.datasets_flow import get_test_datasets_flow
+from croco.stereoflow.engine import tiled_pred
 
-from stereoflow.datasets_stereo import vis_disparity
-from stereoflow.datasets_flow import flowToColor
+from croco.stereoflow.datasets_stereo import vis_disparity
+from croco.stereoflow.datasets_flow import flowToColor
 
 def get_args_parser():
     parser = argparse.ArgumentParser('Test CroCo models on stereo/flow', add_help=False)
