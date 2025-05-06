@@ -20,8 +20,8 @@ class cuRoPE2D_func (torch.autograd.Function):
         ctx.save_for_backward(positions)
         ctx.saved_base = base
         ctx.saved_F0 = F0
-        # tokens = tokens.clone() # uncomment this if inplace doesn't work
-        _kernels.rope_2d( tokens, positions, base, F0 )
+        tokens = tokens.contiguous() # uncomment this if inplace doesn't work
+        _kernels.rope_2d(tokens, positions, base, F0 )
         ctx.mark_dirty(tokens)
         return tokens
 
